@@ -90,7 +90,7 @@ if ($registration['exam'] == 2) {
     <link
         href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Lustria&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <style>
         .confirmation-container {
             max-width: 800px;

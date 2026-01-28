@@ -177,7 +177,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     'location_id' => SQUARE_LOCATION_ID
                 ],
                 'checkout_options' => [
-                    'redirect_url' => 'https://' . $_SERVER['HTTP_HOST'] . '/confirmation.php?id=' . $registrationId
+                    'redirect_url' => 'https://' . $_SERVER['HTTP_HOST'] . '/views/tcf-confirmation.php?id=' . $registrationId
                 ]
             ];
 
