@@ -391,12 +391,13 @@ select:hover {
   content: "";
   width: 18px;
   height: 18px;
-  background: #FFFFFF url("../img/chevron-down-icon.svg") no-repeat center center;
-  background-size: 10px;
+  background: #FFFFFF url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23808889' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E") no-repeat center center;
+  background-size: 12px;
   position: absolute;
   top: 50%;
   right: 15px;
   margin-top: -9px;
+  pointer-events: none;
 }
 
 input:hover,
@@ -463,12 +464,13 @@ input[type=file] {
   content: "";
   width: 18px;
   height: 18px;
-  background: #FFFFFF url("../img/date-icon.png") no-repeat center center;
-  background-size: 12px;
+  background: #FFFFFF url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23808889' viewBox='0 0 16 16'%3E%3Cpath d='M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2M1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857z'/%3E%3Cpath d='M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2'/%3E%3C/svg%3E") no-repeat center center;
+  background-size: 14px;
   position: absolute;
   top: 50%;
   right: 15px;
   margin-top: -9px;
+  pointer-events: none;
 }
 
 /*
@@ -554,6 +556,7 @@ form .exam-fees {
   padding: 32px;
   border-radius: 12px;
   margin-bottom: 32px;
+  padding-top: 80px;
 }
 
 form .exam-fees legend {

@@ -30,7 +30,7 @@ if (strlen($query) < 2) {
 
 // Search municipalities by name
 $stmt = $bdd->prepare("
-    SELECT id, name 
+    SELECT id, name, teo_code 
     FROM french_municipalities 
     WHERE name LIKE :query 
     ORDER BY name 
@@ -41,3 +41,4 @@ $stmt->execute([':query' => $query . '%']);
 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 echo json_encode($results);
+
