@@ -1,4 +1,7 @@
-<?php
+<?php 
+// session_start();
+// if (isset($_SESSION['password_gestinet'])) 
+// {
 /**
  * TCF Registrations Management Interface
  * For integration into Hyperion CMS
@@ -18,6 +21,7 @@ try {
     die('Erreur de connexion : ' . $e->getMessage());
 }
 
+// require("../../config3.php");
 // Get current action
 $action = $_GET['action'] ?? 'list';
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
@@ -1065,3 +1069,6 @@ $reasons = $bdd->query("SELECT id, name FROM tcf_reasons_for_registration ORDER 
     </script>
 </body>
 </html>
+<?php
+//}
+?>

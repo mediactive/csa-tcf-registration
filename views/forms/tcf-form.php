@@ -5,19 +5,20 @@
  */
 
 // Database connection
-try {
-    $bdd = new PDO(
-        'mysql:dbname=leadercsa_tcf;'
-        . 'unix_socket=/opt/homebrew/var/mysql/mysql.sock;'
-        . 'charset=utf8mb4',
-        'root',
-        'root'
-    );
-    $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die('Erreur de connexion : ' . $e->getMessage());
-}
+// try {
+//     $bdd = new PDO(
+//         'mysql:dbname=leadercsa_tcf;'
+//         . 'unix_socket=/opt/homebrew/var/mysql/mysql.sock;'
+//         . 'charset=utf8mb4',
+//         'root',
+//         'root'
+//     );
+//     $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+// } catch (PDOException $e) {
+//     die('Erreur de connexion : ' . $e->getMessage());
+// }
 
+require("../../config3.php");
 // Square API Configuration
 define('SQUARE_ACCESS_TOKEN', 'EAAAl_7258zoE2kV5G7HBGZQPZ2IUFZzuNwCZIDa3mea7Gfzp9du5nWZQzA4cYRN');
 define('SQUARE_LOCATION_ID', 'LP5Z3DN7TJGGQ');
@@ -180,7 +181,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     'redirect_url' => 'https://' . $_SERVER['HTTP_HOST'] . '/views/tcf-confirmation.php?id=' . $registrationId
                 ]
             ];
-
             $ch = curl_init(SQUARE_API_URL);
             curl_setopt_array($ch, [
                 CURLOPT_POST => true,
@@ -203,7 +203,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $paymentUrl = $result['payment_link']['url'] ?? null;
 
                 if ($paymentUrl) {
-                    header('Location: ' . $paymentUrl);
+                    // Redirection JavaScript (fonctionne même si output déjà envoyé)
+                    echo '<script>window.location.href = "' . htmlspecialchars($paymentUrl, ENT_QUOTES) . '";</script>';
+                    echo '<noscript><meta http-equiv="refresh" content="0;url=' . htmlspecialchars($paymentUrl, ENT_QUOTES) . '"></noscript>';
                     exit;
                 }
             }
@@ -233,7 +235,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link
         href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Lustria&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/style.css?v=3">
     <style>
         .tcf-form-container {
             max-width: 800px;
@@ -264,6 +266,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             color: #808889;
             margin-top: 8px;
             font-style: italic;
+            margin-bottom: 0px !important;
         }
 
         .checkbox-group {

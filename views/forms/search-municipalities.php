@@ -6,20 +6,20 @@
 header('Content-Type: application/json; charset=utf-8');
 
 // Database connection
-try {
-    $bdd = new PDO(
-        'mysql:dbname=leadercsa_tcf;'
-        . 'unix_socket=/opt/homebrew/var/mysql/mysql.sock;'
-        . 'charset=utf8mb4',
-        'root',
-        'root'
-    );
-    $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    echo json_encode(['error' => 'Database connection failed']);
-    exit;
-}
-
+// try {
+//     $bdd = new PDO(
+//         'mysql:dbname=leadercsa_tcf;'
+//         . 'unix_socket=/opt/homebrew/var/mysql/mysql.sock;'
+//         . 'charset=utf8mb4',
+//         'root',
+//         'root'
+//     );
+//     $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+// } catch (PDOException $e) {
+//     echo json_encode(['error' => 'Database connection failed']);
+//     exit;
+// }
+require("../../config3.php");
 // Get search query
 $query = isset($_GET['q']) ? trim($_GET['q']) : '';
 

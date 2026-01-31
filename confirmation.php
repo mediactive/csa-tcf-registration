@@ -5,19 +5,19 @@
  */
 
 // Database connection
-// try {
-//     $bdd = new PDO(
-//         'mysql:dbname=leadercsa_tcf;'
-//         . 'unix_socket=/opt/homebrew/var/mysql/mysql.sock;'
-//         . 'charset=utf8mb4',
-//         'root',
-//         'root'
-//     );
-//     $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-// } catch (PDOException $e) {
-//     die('Erreur de connexion : ' . $e->getMessage());
-// }
-require("../config3.php");
+try {
+    $bdd = new PDO(
+        'mysql:dbname=leadercsa_tcf;'
+        . 'unix_socket=/opt/homebrew/var/mysql/mysql.sock;'
+        . 'charset=utf8mb4',
+        'root',
+        'root'
+    );
+    $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die('Erreur de connexion : ' . $e->getMessage());
+}
+
 // Get registration ID from URL
 $registrationId = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
@@ -90,7 +90,7 @@ if ($registration['exam'] == 2) {
     <link
         href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Lustria&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <style>
         .confirmation-container {
             max-width: 800px;
